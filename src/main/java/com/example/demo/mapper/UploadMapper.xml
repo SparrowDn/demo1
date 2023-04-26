@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UploadMapper">
+
+    <!--select all-->
+    <select id="boardList" resultType="com.example.demo.domain.BoardListDomain">
+        SELECT bd_seq, mb_id, bd_title, bd_content, bd_create_at, bd_update_at
+        FROM jsp.board order by bd_update_at desc
+    </select>
+
+    <!-- content -->
+    <select id="boardSelectOne" resultType="com.example.demo.domain.BoardListDomain" parameterType="map">
+        SELECT bd_seq, mb_id, bd_title, bd_content, bd_create_at, bd_update_at
+        FROM jsp.board where bd_seq = #{bdSeq}
+    </select>
+
+    <!-- file -->
+    <select id="boardSelectOneFile" resultType="com.example.demo.domain.BoardFileDomain" parameterType="map">
+        SELECT bd_seq, mb_id, up_original_file_name, up_new_file_name, up_file_path, up_file_size
+        FROM jsp.view_board where bd_seq = #{bdSeq}
+    </select>
+
+</mapper>
