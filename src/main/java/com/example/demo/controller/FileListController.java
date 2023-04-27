@@ -39,7 +39,7 @@ public class FileListController {
 
         // 화면에서 넘어올때는 bdSeq String이라 string으로 변환해서 넣어즘
         mav = bdSelectOneCall(fileListVO, String.valueOf(bdSeq),request);
-        mav.setViewName("board/boardList.html");
+        mav.setViewName("board/boardList");
         return mav;
 
     }
