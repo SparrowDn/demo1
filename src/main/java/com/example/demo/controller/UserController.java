@@ -29,6 +29,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping(value = "/")
 public class UserController {
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
 
     @Autowired
     private UserService userService;
